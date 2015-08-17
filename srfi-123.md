@@ -53,8 +53,11 @@ To accommodate, we define a pair of generic accessor operators that
 work through type-based dynamic dispatch: `(ref object field)`, and
 `(ref* object field1 field2 ...)` for chained access.
 
-We define `~` as a synonym to `ref*`, and define an SRFI-17 setter for
-it: `(set! (~ object field1 field2 ...) value)`.
+We define `~` as a synonym to `ref*`.
+
+Also we define an SRFI-17 setter for `~` and `ref*`:
+`(set! (~ object field1 field2 ...) value)` or 
+`(set! (ref* object field1 field2 ...) value)`.
 
 Plain `ref`, instead of allowing chaining, takes an optional `default`
 argument for objects such as hashtables: `(ref table key default)`.
